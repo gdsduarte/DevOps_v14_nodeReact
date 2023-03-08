@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="/client/assets/css/login.css" />
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js" defer></script>
+</head>
+
+<body>
+    <main>
+        <section class="container">
+            <div class="col-1">
+                <img src="/client/assets/img/logo.jpg">
+            </div>
+
+            <div class="col-2">
+                <div class="signin">Sign In</div>
+
+                <form id="login">
+                    <div class="email">
+                        <input type="email" name="Email Adress" placeholder="Email Adress" required>
+                    </div>
+                    <div class="password">
+                        <input type="password" name="Password" placeholder="Password" required>
+                    </div>
+                    <div class="login">
+                        <button class="btn">Login</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Firebase SDK script -->
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            // Firebase configuration
+            const firebaseConfig = {
+                apiKey: "AIzaSyCagFPcXoPRzWBsMw8dglfOPMMDdINVp4k",
+                authDomain: "devopsproject-c4f6b.firebaseapp.com",
+                projectId: "devopsproject-c4f6b",
+                storageBucket: "devopsproject-c4f6b.appspot.com",
+                messagingSenderId: "129199982811",
+                appId: "1:129199982811:web:3f96a32b7ad711172ee4fe",
+                measurementId: "G-B94GKFW1V3"
+            };
+
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+
+            // Set Persistance to NONE
+            firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE);
+
+            // Event Listener for the form submit
+            document
+                .getElementById("login")
+                .addEventListener("submit", (event) => {
+                    // Prevent form from submitting
+                    event.preventDefault();
+                    // Get user email and password
+                    const login = event.target.elements["Email Adress"].value;
+                    const password = event.target.elements["Password"].value;
+
+                    // Sign into Firebase with email and password 
+                    firebase
+                        .auth()
+                        .signInWithEmailAndPassword(login, password)
+                        .then(({ user }) => {
+                            // Get an authentication token from Firebase
+                            return user.getIdToken().then((idToken) => {
+                                // Send the authentication token to server for validation
+                                return fetch("/sessionLogin", {
+                                    method: "POST",
+                                    headers: {
+                                        Accept: "application/json",
+                                        "Content-Type": "application/json",
+                                        "CSRF-Token": Cookies.get("XSRF-TOKEN"),
+                                    },
+                                    body: JSON.stringify({ idToken }),
+                                });
+                            });
+                        })
+                        // Log out of firebase 
+                        .then(() => {
+                            return firebase.auth().signOut();
+                        })
+                        // Redirect to calendar page
+                        .then(() => {
+                            window.location.assign("/index22");
+                        });
+                    return false;
+                });
+
+        });
+    </script>
+
+    <!--<a href="/views/siginup.html">Siginup</a>-->
+</body>
+
+</html>

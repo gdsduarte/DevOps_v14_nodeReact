@@ -1,0 +1,146 @@
+/*  ============= WEB BROWSER RESETS ============ */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box
+}
+
+html {
+    height: 100%;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    scroll-behavior: smooth;
+    scroll-padding-top: 20px
+}
+
+body {
+    /* max-width: 1920px; */
+    line-height: 1.4;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 100vh;
+    text-rendering: optimizeSpeed
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit
+}
+
+/* ================= ENDS ================ */
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.col-1 {
+    float: left;
+    width: 60%;
+}
+
+.col-2 {
+    float: right;
+    width: 40%;
+}
+
+img {
+    width: 100%;
+}
+
+.signin {
+    position: absolute;
+    width: 129px;
+    height: 44px;
+    left: 1238px;
+    top: 176px;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 42px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+}
+
+input {
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+}
+
+.email,
+.password {
+    position: absolute;
+    width: 611px;
+    height: 46px;
+    left: 1238px;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    letter-spacing: 0.115em;
+}
+
+.email {
+    top: 251px;
+}
+
+.password {
+    top: 320px;
+}
+
+.login {
+    position: absolute;
+    width: 594px;
+    height: 70px;
+    left: 1248px;
+    top: 778px;
+}
+
+.btn {
+    background-color: #1D265F;
+    border: none;
+    color: white;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 42px;
+    align-items: center;
+    letter-spacing: 0.115em;
+}
+
+.btn:hover {
+    background-color: #283C90;
+}

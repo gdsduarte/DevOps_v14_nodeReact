@@ -1,0 +1,197 @@
+/*  ============= WEB BROWSER RESETS ============ */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box
+}
+
+html {
+    height: 100%;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    scroll-behavior: smooth;
+    scroll-padding-top: 20px;
+    margin: 0 20px 0 20px;
+}
+
+body {
+    /* max-width: 1920px; */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    line-height: 1.4;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 100vh;
+    text-rendering: optimizeSpeed
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit
+}
+
+/* ================= ENDS ================ */
+
+/* ========== Header styles ========== */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    height: 40px;
+}
+
+.avatar {
+    position: relative;
+    cursor: pointer;
+}
+
+.avatar img {
+    height: 40px;
+    border-radius: 50%;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.avatar.active .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    padding: 5px 0;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f5f5f5;
+}
+
+/* ========== Header styles ========== */
+
+/* ========== Main styles ========== */
+
+main {
+    flex: 1;
+}
+
+/* ========== Main styles ========== */
+
+/* ========== Calendar styles ========== */
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    height: 80%;
+    margin: 20px 0 20px 0; 
+}
+
+.main-left,
+.main-right {
+    flex-basis: 20%;
+}
+
+.main-middle {
+    flex-basis: 80%;
+}
+
+.date,
+.list,
+.notes {
+    height: 33.3%;
+}
+
+.right-top,
+.right-bottom {
+    height: 50%;
+}
+
+/* ========== Calendar styles ========== */
+
+
+/* ========== Footer styles ========== */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+/* First part */
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+/* Second part */
+.social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.social-links img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Third part */
+.copy {
+    font-size: 12px;
+    text-align: center;
+}
